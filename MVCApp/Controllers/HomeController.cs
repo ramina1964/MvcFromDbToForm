@@ -35,7 +35,7 @@ public class HomeController : Controller
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public IActionResult SignUp(EmployeeModel model)
+    public IActionResult SignUp(EmployeeDisplay model)
     {
         if (ModelState.IsValid)
         {

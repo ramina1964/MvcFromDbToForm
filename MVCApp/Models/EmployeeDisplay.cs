@@ -2,12 +2,12 @@
 
 namespace MVCApp.Models;
 
-public class EmployeeModel
+public class EmployeeDisplay
 {
     [Display(Name = "Employee Id")]
     [Required(ErrorMessage = "Employee ID is required.")]
     [Range(minimum: 100000, maximum: 999999, ErrorMessage = "Invalid Employee Id.")]
-    public int Id { get; set; }
+    public int EmployeeId { get; set; }
 
     [Display(Name = "First Name")]
     [Required(ErrorMessage = "First name is required.")]

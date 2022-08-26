@@ -56,5 +56,22 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\StoredProcedures" />
+    <Folder Include="dbo\Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Employee.sql" />
+    <Build Include="dbo\StoredProcedures\spEmployee_ReadAll.sql" />
+    <Build Include="dbo\StoredProcedures\spEmployee_ReadById.sql" />
+    <Build Include="dbo\StoredProcedures\spEmployee_Create.sql" />
+    <Build Include="dbo\StoredProcedures\spEmployee_Update.sql" />
+    <Build Include="dbo\StoredProcedures\spEmployee_Delete.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MVCDemoDB.publish.xml" />
   </ItemGroup>
 </Project>
