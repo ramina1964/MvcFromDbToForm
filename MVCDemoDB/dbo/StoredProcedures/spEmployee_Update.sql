@@ -6,7 +6,7 @@
 	@EmailAddress nvarchar(100)
 AS
 begin
-	update dbo.[Employee]
+	update [dbo].[Employee]
 	set
 	EmployeeId = @EmployeeId,
 	FirstName = @FirstName,

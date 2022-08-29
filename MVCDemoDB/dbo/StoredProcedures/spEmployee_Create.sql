@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spEmployee_Create]
 	@EmployeeId int,
-	@FirstName nvarchar(50),
-	@LastName nvarchar(50),
-	@EmailAddress nvarchar(50)
+	@FirstName nvarchar(100),
+	@LastName nvarchar(100),
+	@EmailAddress nvarchar(100)
 AS
 begin
 	insert into [dbo].[Employee]

@@ -14,21 +14,11 @@ public class HomeController : Controller
         _service = service;
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
-
-    public IActionResult Privacy()
-    {
-        return View();
-    }
+    public IActionResult Index() => View();
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
+    public IActionResult Error() =>
+        View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 
     public async Task<ActionResult> ViewEmployees()
     {
@@ -40,16 +30,15 @@ public class HomeController : Controller
         {
             foreach (var row in result)
             {
-                var employee = new EmployeeDisplay
+                var employeeDisp = new EmployeeDisplay
                 {
                     EmployeeId = row.EmployeeId,
-                    FirstName = row.FisrstName,
+                    FirstName = row.FirstName,
                     LastName = row.LastName,
                     EmailAddress = row.EmailAddress,
                     ConfirmEmail = row.EmailAddress
                 };
-
-                employees.Add(employee);
+                employees.Add(employeeDisp);
             }
         }
 
@@ -72,13 +61,13 @@ public class HomeController : Controller
             var e = new Employee
             {
                 EmployeeId = employee.EmployeeId,
-                FisrstName = employee.FirstName,
+                FirstName = employee.FirstName,
                 LastName = employee.LastName,
                 EmailAddress = employee.EmailAddress
             };
 
             var records = await _service.Create(e);
-            return RedirectToAction("Index");
+            return RedirectToAction("ViewEmployees");
         }
 
         return View();

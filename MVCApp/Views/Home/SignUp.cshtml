@@ -6,8 +6,9 @@
 
 <h1>Employee Sign Up</h1>
 
-<h4>Employee Model</h4>
-<hr />
+<p>
+    <a asp-action="ViewEmployees">View Employees</a>
+</p>
 
 @* Sign up Form *@
 <div class="row">
@@ -75,14 +76,13 @@
                 <div class="form-group">
                     <input type="submit" value="Create" class="btn btn-primary" />
                 </div>
-
             </p>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="ViewEmployees">Back to List</a>
 </div>
 
 @section Scripts {

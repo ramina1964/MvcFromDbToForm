@@ -19,32 +19,23 @@ public class EmployeeService : IEmployeeService
         return result.FirstOrDefault();
     }
 
-    //public async Task<int> Create(Employee employee) =>
-    //    await _db.SaveData(
-    //          "spEmployee_Create",
-    //          new { employee.EmployeeId, employee.FisrstName, employee.LastName, employee.EmailAddress });
-
     public async Task<int> Create(Employee employee)
     {
-        // Todo: Instantiate an object of type DataLibrary.Data.Model.Employee instead of an anonymous object.
-        var data = new
-        {
-            employee.EmployeeId,
-            employee.FisrstName,
-            employee.LastName,
-            employee.EmailAddress
-        };
-
-        var result = await _db.SaveData("spEmployee_Create", data);
+        var result = await _db.SaveData("spEmployee_Create",
+            new { employee.EmployeeId, employee.FirstName, employee.LastName, employee.EmailAddress });
         return result;
     }
 
-    public async Task<int> Update(Employee employee) =>
-        await _db.SaveData("spEmployee_ReadById", employee);
-
-    public async Task<int> Delete(int id) =>
-        await _db.SaveData("spEmployee_Update", new { Id = id });
-
+    public async Task<int> Update(Employee employee)
+    {
+        var result = await _db.SaveData("spEmployee_Update", employee);
+        return result;
+    }
+    public async Task<int> Delete(int id)
+    {
+        var result = await _db.SaveData("spEmployee_Delete", new { Id = id });
+        return result;
+    }
 
     private readonly ISqlDataAccess _db;
 }
