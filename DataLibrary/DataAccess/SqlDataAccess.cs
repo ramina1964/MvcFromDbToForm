@@ -20,7 +20,8 @@ public class SqlDataAccess : ISqlDataAccess
     {
         var cnn = _config.GetConnectionString(connectionId);
         using IDbConnection connection = new SqlConnection(cnn);
-        return await connection.ExecuteAsync(sql: storedProcedure, param: parameter);
+        var result = await connection.ExecuteAsync(sql: storedProcedure, param: parameter);
+        return result;
     }
 
     private readonly IConfiguration _config;

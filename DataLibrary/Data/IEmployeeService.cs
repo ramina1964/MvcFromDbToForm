@@ -4,7 +4,7 @@ namespace DataLibrary.Data;
 
 public interface IEmployeeService
 {
-    Task<List<Employee>?> ReadAll();
+    Task<List<Employee>>? ReadAll();
 
     Task<Employee?> ReadById(int id);
 

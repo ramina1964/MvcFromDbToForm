@@ -64,9 +64,9 @@
     <Build Include="dbo\Tables\Employee.sql" />
     <Build Include="dbo\StoredProcedures\spEmployee_ReadAll.sql" />
     <Build Include="dbo\StoredProcedures\spEmployee_ReadById.sql" />
-    <Build Include="dbo\StoredProcedures\spEmployee_Create.sql" />
     <Build Include="dbo\StoredProcedures\spEmployee_Update.sql" />
     <Build Include="dbo\StoredProcedures\spEmployee_Delete.sql" />
+    <Build Include="dbo\StoredProcedures\spEmployee_Create.sql" />
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />

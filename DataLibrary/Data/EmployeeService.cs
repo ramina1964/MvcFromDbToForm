@@ -7,10 +7,10 @@ public class EmployeeService : IEmployeeService
 {
     public EmployeeService(ISqlDataAccess db) => _db = db;
 
-    public async Task<List<Employee>?> ReadAll()
+    public async Task<List<Employee>>? ReadAll()
     {
         var result = await _db.LoadData<Employee, dynamic>("spEmployee_ReadAll", new { });
-        return result?.ToList();
+        return result.ToList();
     }
 
     public async Task<Employee?> ReadById(int id)
@@ -19,10 +19,25 @@ public class EmployeeService : IEmployeeService
         return result.FirstOrDefault();
     }
 
-    public async Task<int> Create(Employee employee) =>
-        await _db.SaveData(
-              "spEmployee_Create",
-              new { employee.Id, employee.FisrstName, employee.LastName, employee.EmailAddress });
+    //public async Task<int> Create(Employee employee) =>
+    //    await _db.SaveData(
+    //          "spEmployee_Create",
+    //          new { employee.EmployeeId, employee.FisrstName, employee.LastName, employee.EmailAddress });
+
+    public async Task<int> Create(Employee employee)
+    {
+        // Todo: Instantiate an object of type DataLibrary.Data.Model.Employee instead of an anonymous object.
+        var data = new
+        {
+            employee.EmployeeId,
+            employee.FisrstName,
+            employee.LastName,
+            employee.EmailAddress
+        };
+
+        var result = await _db.SaveData("spEmployee_Create", data);
+        return result;
+    }
 
     public async Task<int> Update(Employee employee) =>
         await _db.SaveData("spEmployee_ReadById", employee);
