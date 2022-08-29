@@ -35,12 +35,25 @@ public class HomeController : Controller
         ViewBag.Message = "Employees List";
         var result = await _service.ReadAll();
 
+        var employees = new List<EmployeeDisplay>();
         if (result is not null)
         {
-            return View();
+            foreach (var row in result)
+            {
+                var employee = new EmployeeDisplay
+                {
+                    EmployeeId = row.EmployeeId,
+                    FirstName = row.FisrstName,
+                    LastName = row.LastName,
+                    EmailAddress = row.EmailAddress,
+                    ConfirmEmail = row.EmailAddress
+                };
+
+                employees.Add(employee);
+            }
         }
 
-        return View();
+        return View(employees);
     }
 
     [HttpGet]
