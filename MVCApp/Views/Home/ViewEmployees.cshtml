@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<MVCApp.Models.EmployeeDisplay>
 
 @{
-    ViewData["Title"] = "ViewEmployees";
+    ViewData["Title"] = "View Employees";
 }
 
-<h1>View Employees</h1>
+<h1>ViewEmployees</h1>
 
 <p>
     <a asp-action="SignUp">Create New</a>
@@ -28,22 +28,29 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </td>
+                @*
             <td>
-                @Html.DisplayFor(modelItem => item.EmployeeId)
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.EmailAddress)
-            </td>
-            <td>
-        </tr>
-}
+            *@
+            </tr>
+        }
     </tbody>
 </table>
