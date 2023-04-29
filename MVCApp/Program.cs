@@ -1,6 +1,3 @@
-using DataLibrary.Data;
-using DataLibrary.DataAccess;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

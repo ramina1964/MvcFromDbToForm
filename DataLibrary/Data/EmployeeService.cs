@@ -1,7 +1,4 @@
-﻿using DataLibrary.DataAccess;
-using DataLibrary.Model;
-
-namespace DataLibrary.Data;
+﻿namespace DataLibrary.Data;
 
 public class EmployeeService : IEmployeeService
 {

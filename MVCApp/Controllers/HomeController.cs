@@ -1,17 +1,11 @@
-﻿using DataLibrary.Data;
-using DataLibrary.Model;
-using Microsoft.AspNetCore.Mvc;
-using MVCApp.Models;
-using System.Diagnostics;
-
-namespace MVCApp.Controllers;
+﻿namespace MVCApp.Controllers;
 
 public class HomeController : Controller
 {
     public HomeController(ILogger<HomeController> logger, IEmployeeService service)
     {
         _logger = logger;
-        _service = service;
+        _service = service ?? throw new ArgumentNullException(nameof(service));
     }
 
     public IActionResult Index() => View();
