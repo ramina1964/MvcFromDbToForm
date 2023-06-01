@@ -1,4 +1,4 @@
-﻿namespace MVCApp.Models;
+﻿namespace MvcApp.Models;
 
 public class EmployeeDisplay
 {

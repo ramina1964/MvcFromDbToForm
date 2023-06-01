@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>MVCDemoDB</Name>
+    <Name>MvcDemoDb</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{3bf64d46-9a19-4b09-a901-973b0a4ffd93}</ProjectGuid>
@@ -11,8 +11,8 @@
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>MVCDemoDB</RootNamespace>
-    <AssemblyName>MVCDemoDB</AssemblyName>
+    <RootNamespace>MvcDemoDb</RootNamespace>
+    <AssemblyName>MvcDemoDb</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
@@ -72,6 +72,6 @@
     <PostDeploy Include="Script.PostDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="MVCDemoDB.publish.xml" />
+    <None Include="MvcDemoDb.publish.xml" />
   </ItemGroup>
 </Project>

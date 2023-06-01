@@ -1,4 +1,4 @@
-﻿namespace MVCApp.Controllers;
+﻿namespace MvcApp.Controllers;
 
 public class HomeController : Controller
 {
@@ -17,7 +17,7 @@ public class HomeController : Controller
     public async Task<ActionResult> ViewEmployees()
     {
         ViewBag.Message = "Employees List";
-        var result = await _service.ReadAll();
+        var result = await _service?.ReadAll();
 
         var employees = new List<EmployeeDisplay>();
         if (result is not null)
