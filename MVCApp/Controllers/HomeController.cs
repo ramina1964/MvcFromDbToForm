@@ -1,17 +1,11 @@
-﻿using DataLibrary.Data;
-using DataLibrary.Model;
-using Microsoft.AspNetCore.Mvc;
-using MVCApp.Models;
-using System.Diagnostics;
-
-namespace MVCApp.Controllers;
+﻿namespace MvcApp.Controllers;
 
 public class HomeController : Controller
 {
     public HomeController(ILogger<HomeController> logger, IEmployeeService service)
     {
         _logger = logger;
-        _service = service;
+        _service = service ?? throw new ArgumentNullException(nameof(service));
     }
 
     public IActionResult Index() => View();
@@ -23,7 +17,7 @@ public class HomeController : Controller
     public async Task<ActionResult> ViewEmployees()
     {
         ViewBag.Message = "Employees List";
-        var result = await _service.ReadAll();
+        var result = await _service?.ReadAll();
 
         var employees = new List<EmployeeDisplay>();
         if (result is not null)

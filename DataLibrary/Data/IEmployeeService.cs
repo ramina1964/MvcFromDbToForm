@@ -1,6 +1,4 @@
-﻿using DataLibrary.Model;
-
-namespace DataLibrary.Data;
+﻿namespace DataLibrary.Data;
 
 public interface IEmployeeService
 {
