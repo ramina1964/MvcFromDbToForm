@@ -59,6 +59,7 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\StoredProcedures" />
     <Folder Include="dbo\Tables" />
+    <Folder Include="Publish Profiles\" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\StoredProcedures\spEmployee_ReadAll.sql" />
@@ -70,5 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Publish Profiles\MvcDemoDb.publish.xml" />
   </ItemGroup>
 </Project>

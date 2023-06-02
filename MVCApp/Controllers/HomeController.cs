@@ -17,24 +17,17 @@ public class HomeController : Controller
     public async Task<ActionResult> ViewEmployees()
     {
         ViewBag.Message = "Employees List";
-        var result = await _service?.ReadAll();
-
+        var result = await _service.ReadAll();
         var employees = new List<EmployeeDisplay>();
-        if (result is not null)
+
+        result.ForEach(e => employees.Add(new EmployeeDisplay
         {
-            foreach (var row in result)
-            {
-                var employeeDisp = new EmployeeDisplay
-                {
-                    EmployeeId = row.EmployeeId,
-                    FirstName = row.FirstName,
-                    LastName = row.LastName,
-                    EmailAddress = row.EmailAddress,
-                    ConfirmEmail = row.EmailAddress
-                };
-                employees.Add(employeeDisp);
-            }
-        }
+            EmployeeId = e.EmployeeId,
+            FirstName = e.FirstName,
+            LastName = e.LastName,
+            EmailAddress = e.EmailAddress,
+            ConfirmEmail = e.EmailAddress
+        }));
 
         return View(employees);
     }
