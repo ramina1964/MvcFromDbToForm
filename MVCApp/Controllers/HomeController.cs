@@ -22,6 +22,7 @@ public class HomeController : Controller
 
         result.ForEach(e => employees.Add(new EmployeeDisplay
         {
+            Id = e.Id,
             EmployeeId = e.EmployeeId,
             FirstName = e.FirstName,
             LastName = e.LastName,
@@ -53,11 +54,32 @@ public class HomeController : Controller
                 EmailAddress = employee.EmailAddress
             };
 
-            var records = await _service.Create(e);
+            _ = await _service.Create(e);
             return RedirectToAction("ViewEmployees");
         }
 
         return View();
+    }
+
+    [HttpGet]
+    public async Task<ActionResult> Details(int id)
+    {
+        var employee = await _service.ReadById(id);
+        if (employee == null)
+        {
+            return NotFound();
+        }
+
+        var employeeDisplay = new EmployeeDisplay
+        {
+            Id = id,
+            EmployeeId = employee.EmployeeId,
+            FirstName = employee.FirstName,
+            LastName = employee.LastName,
+            EmailAddress = employee.EmailAddress
+        };
+
+        return View(employeeDisplay);
     }
 
     private readonly ILogger<HomeController> _logger;

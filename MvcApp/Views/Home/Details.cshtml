@@ -1,0 +1,34 @@
+﻿@model MvcApp.Models.EmployeeDisplay
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+
+<h1>Employee Details</h1>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <td>@Model.Id</td>
+    </tr>
+    <tr>
+        <th>Employee Id</th>
+        <td>@Model.EmployeeId</td>
+    </tr>
+    <tr>
+        <th>First Name</th>
+        <td>@Model.FirstName</td>
+    </tr>
+    <tr>
+        <th>Last Name</th>
+        <td>@Model.LastName</td>
+    </tr>
+    <tr>
+        <th>Email Address</th>
+        <td>@Model.EmailAddress</td>
+    </tr>
+</table>
+
+<p>
+    <a asp-action="ViewEmployees">Back to List</a>
+</p>

@@ -12,7 +12,7 @@ public class EmployeeService : IEmployeeService
 
     public async Task<Employee?> ReadById(int id)
     {
-        var result = await _db.LoadData<Employee, dynamic>("spEmployee_ReadById", new { Id = id });
+        var result = await _db.LoadData<Employee, dynamic>("spEmployee_ReadById", new { id });
         return result.FirstOrDefault();
     }
 
