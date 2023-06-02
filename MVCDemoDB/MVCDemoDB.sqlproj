@@ -71,7 +71,4 @@
   <ItemGroup>
     <PostDeploy Include="Script.PostDeployment.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="MvcDemoDb.publish.xml" />
-  </ItemGroup>
 </Project>
