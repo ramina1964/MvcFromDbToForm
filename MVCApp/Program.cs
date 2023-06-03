@@ -1,4 +1,3 @@
-// Todo: Implement functionality for Employee Details, Edit Employee, and Delete Employee.
 // Todo: Add an Integration Testing project to the solution.
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,7 +13,6 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment() == false)
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
