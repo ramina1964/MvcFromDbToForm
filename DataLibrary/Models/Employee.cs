@@ -11,7 +11,7 @@ public class Employee
     [Display(Name = "First Name")]
     public string? FirstName { get; set; }
 
-    [Display(Name = "Lastb Name")]
+    [Display(Name = "Last Name")]
     public string? LastName { get; set; }
 
     [Display(Name = "Email Address")]
