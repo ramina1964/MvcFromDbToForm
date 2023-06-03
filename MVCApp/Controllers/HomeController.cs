@@ -19,7 +19,6 @@ public class HomeController : Controller
         ViewBag.Message = "Employees List";
         var result = await _service.ReadAll() ?? new List<Employee>();
         var employees = new List<EmployeeDisplay>();
-
         result.ForEach(e => employees.Add(new EmployeeDisplay
         {
             Id = e.Id,

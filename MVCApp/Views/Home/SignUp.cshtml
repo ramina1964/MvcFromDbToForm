@@ -1,7 +1,7 @@
 ﻿@model MvcApp.Models.EmployeeDisplay
 
 @{
-    ViewData["Title"] = "Employee Sign Up";
+    ViewData["Title"] = "Sign Up";
 }
 
 <h1>Employee Sign Up</h1>
@@ -30,7 +30,6 @@
                     <span asp-validation-for="FirstName" class="text-danger"></span>
                 </div>
             </p>
-
 
             <p>
                 <div class="form-group">
@@ -81,9 +80,11 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="ViewEmployees">Back to List</a>
-</div>
+<p>
+    <div>
+        <a asp-action="ViewEmployees">Back to List</a>
+    </div>
+</p>
 
 @section Scripts {
     @{

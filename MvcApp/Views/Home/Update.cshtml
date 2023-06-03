@@ -1,10 +1,12 @@
 ﻿@model DataLibrary.Models.Employee
 
 @{
-    ViewData["Title"] = "Update Employee";
+    ViewData["Title"] = "Update";
 }
 
-<h1>Update Employee</h1>
+<p>
+    <h2>Update Employee</h2>
+</p>
 
 <p>
     <a asp-action="ViewEmployees">View Employees</a>
@@ -15,31 +17,31 @@
         <form asp-action="Update">
             <input type="hidden" asp-for="Id" />
 
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="EmployeeId" class="control-label"></label>
                 <input asp-for="EmployeeId" class="form-control" />
                 <span asp-validation-for="EmployeeId" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="FirstName" class="control-label"></label>
                 <input asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-2">
                 <label asp-for="LastName" class="control-label"></label>
                 <input asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <label asp-for="EmailAddress" class="control-label"></label>
                 <input asp-for="EmailAddress" class="form-control" />
                 <span asp-validation-for="EmailAddress" class="text-danger"></span>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mb-3">
                 <input type="submit" value="Update" class="btn btn-primary" />
             </div>
         </form>
