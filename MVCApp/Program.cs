@@ -1,4 +1,4 @@
-// Todo: Complete this app by following this Tim Corey course course: https://www.youtube.com/watch?v=bIiEv__QNxw&t=124s
+// Todo: Implement functionality for Employee Details, Edit Employee, and Delete Employee.
 // Todo: Add an Integration Testing project to the solution.
 
 var builder = WebApplication.CreateBuilder(args);
