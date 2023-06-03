@@ -64,22 +64,50 @@ public class HomeController : Controller
     [HttpGet]
     public async Task<ActionResult> Details(int id)
     {
+        var empDisp = await GetEmployeeDisplay(id);
+
+        return (empDisp is null)
+            ? NotFound()
+            : View(empDisp);
+    }
+
+    [HttpGet]
+    public async Task<ActionResult> Update(int id)
+    {
         var employee = await _service.ReadById(id);
-        if (employee == null)
+        return (employee is null)
+            ? NotFound()
+            : View(employee);
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> Update(Employee employee)
+    {
+        if (ModelState.IsValid == false || employee is null)
         {
-            return NotFound();
+            return View();
         }
+        await _service.Update(employee);
 
-        var employeeDisplay = new EmployeeDisplay
-        {
-            Id = id,
-            EmployeeId = employee.EmployeeId,
-            FirstName = employee.FirstName,
-            LastName = employee.LastName,
-            EmailAddress = employee.EmailAddress
-        };
+        return RedirectToAction("ViewEmployees");
+    }
 
-        return View(employeeDisplay);
+
+    private async Task<EmployeeDisplay?> GetEmployeeDisplay(int id)
+    {
+        var emp = await _service.ReadById(id);
+
+        return (emp is null)
+            ? null
+            : new EmployeeDisplay
+            {
+                Id = id,
+                EmployeeId = emp.EmployeeId,
+                FirstName = emp.FirstName,
+                LastName = emp.LastName,
+                EmailAddress = emp.EmailAddress
+            };
     }
 
     private readonly ILogger<HomeController> _logger;

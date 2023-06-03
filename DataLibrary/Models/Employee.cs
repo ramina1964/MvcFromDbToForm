@@ -1,4 +1,4 @@
-﻿namespace DataLibrary.Model;
+﻿namespace DataLibrary.Models;
 
 public class Employee
 {
