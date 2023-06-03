@@ -17,7 +17,7 @@ public class HomeController : Controller
     public async Task<ActionResult> ViewEmployees()
     {
         ViewBag.Message = "Employees List";
-        var result = await _service.ReadAll();
+        var result = await _service.ReadAll() ?? new List<Employee>();
         var employees = new List<EmployeeDisplay>();
 
         result.ForEach(e => employees.Add(new EmployeeDisplay
@@ -93,6 +93,27 @@ public class HomeController : Controller
         return RedirectToAction("ViewEmployees");
     }
 
+    [HttpGet]
+    public async Task<ActionResult> Delete(int id)
+    {
+        var employee = await _service.ReadById(id);
+        return (employee is null)
+            ? NotFound()
+            : View(employee);
+    }
+
+    [HttpPost, ActionName("DeleteConfirmed")]
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> DeleteConfirmed(int id)
+    {
+        var result = await _service.Delete(id);
+        return (result == 1)
+            ? RedirectToAction("ViewEmployees")
+
+            // Here you can handle the case when the employee is not found or not deleted.
+            // Returning to the Delete view for now.
+            : View();
+    }
 
     private async Task<EmployeeDisplay?> GetEmployeeDisplay(int id)
     {

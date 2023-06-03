@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<MvcApp.Models.EmployeeDisplay>
 
-@{
-    ViewData["Title"] = "View Employees";
-}
+@*ViewData["Title"] = "View Employees";*@
 
 <h1>View Employees</h1>
 
@@ -47,7 +45,8 @@
                 <td>
                     @Html.ActionLink("Details", "Details", new { id = item.Id }) |
                     @Html.ActionLink("Update", "Update", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
         }
