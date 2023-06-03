@@ -24,7 +24,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.EmailAddress)
             </th>
-            <th></th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -45,8 +45,8 @@
                 </td>
 
                 <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Update", "Update", new { id = item.Id }) |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Update" asp-route-id="@item.Id">Update</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
