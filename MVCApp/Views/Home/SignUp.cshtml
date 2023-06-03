@@ -7,7 +7,7 @@
 <h1>Employee Sign Up</h1>
 
 <p>
-    <a asp-action="ViewEmployees">View Employees</a>
+    <a asp-action="List">View Employees</a>
 </p>
 
 @* Sign up Form *@
@@ -17,7 +17,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <p>
                 <div class="form-group">
-                    <label asp-for="EmployeeId" class="control-label"></label>
+                    <label asp-for="EmployeeId"></label>
                     <input asp-for="EmployeeId" class="form-control" />
                     <span asp-validation-for="EmployeeId" class="text-danger"></span>
                 </div>
@@ -82,7 +82,7 @@
 
 <p>
     <div>
-        <a asp-controller="Home" asp-action="ViewEmployees">Back to List</a>
+        <a asp-controller="Home" asp-action="List">Back to List</a>
     </div>
 </p>
 

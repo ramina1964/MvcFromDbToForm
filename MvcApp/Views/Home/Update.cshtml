@@ -9,7 +9,7 @@
 </p>
 
 <p>
-    <a asp-action="ViewEmployees">View Employees</a>
+    <a asp-action="List">View Employees</a>
 </p>
 
 <div class="row">
@@ -18,9 +18,9 @@
             <input type="hidden" asp-for="Id" />
 
             <div class="form-group mb-2">
-                <label asp-for="EmployeeId" class="control-label"></label>
-                <input asp-for="EmployeeId" class="form-control" />
-                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+                 <label asp-for="EmployeeId" class="control-label"></label> 
+                <input asp-for="@Model.EmployeeId" class="form-control" />
+                <span asp-validation-for="@Model.EmployeeId" class="text-danger"></span>
             </div>
 
             <div class="form-group mb-2">
@@ -49,7 +49,7 @@
 </div>
 
 <div>
-    <a asp-controller="Home" asp-action="ViewEmployees">Back to List</a>
+    <a asp-controller="Home" asp-action="List">Back to List</a>
 </div>
 
 @section Scripts {

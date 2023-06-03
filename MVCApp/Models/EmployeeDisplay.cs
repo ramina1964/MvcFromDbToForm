@@ -2,10 +2,10 @@
 
 public class EmployeeDisplay
 {
-    [Display(Name = "Id")]
+    [Display(Name = "ID")]
     public int Id { get; set; }
 
-    [Display(Name = "Employee Id")]
+    [Display(Name = "Employee ID")]
     [Required(ErrorMessage = "Employee ID is required.")]
     [Range(minimum: 100000, maximum: 999999, ErrorMessage = "Invalid Employee Id.")]
     public int EmployeeId { get; set; }

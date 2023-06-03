@@ -14,7 +14,7 @@ public class HomeController : Controller
     public IActionResult Error() =>
         View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 
-    public async Task<ActionResult> ViewEmployees()
+    public async Task<ActionResult> List()
     {
         ViewBag.Message = "Employees List";
         var result = await _service.ReadAll() ?? new List<Employee>();
@@ -54,7 +54,7 @@ public class HomeController : Controller
             };
 
             _ = await _service.Create(e);
-            return RedirectToAction("ViewEmployees");
+            return RedirectToAction("List");
         }
 
         return View();
@@ -89,7 +89,7 @@ public class HomeController : Controller
         }
         await _service.Update(employee);
 
-        return RedirectToAction("ViewEmployees");
+        return RedirectToAction("List");
     }
 
     [HttpGet]
@@ -107,7 +107,7 @@ public class HomeController : Controller
     {
         var result = await _service.Delete(id);
         return (result == 1)
-            ? RedirectToAction("ViewEmployees")
+            ? RedirectToAction("List")
 
             // Here you can handle the case when the employee is not found or not deleted.
             // Returning to the Delete view for now.
