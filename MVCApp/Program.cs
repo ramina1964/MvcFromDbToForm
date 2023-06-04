@@ -1,5 +1,3 @@
-// Todo: Add an Integration Testing project to the solution.
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
