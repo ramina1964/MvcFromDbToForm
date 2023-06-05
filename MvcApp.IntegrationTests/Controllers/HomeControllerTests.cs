@@ -5,7 +5,16 @@ public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>, I
     public HomeControllerTests(CustomWebApplicationFactory factory)
     {
         _factory = factory;
+        SeedTestData();
+    }
 
+    public void Dispose()
+    {
+        // Dispose any additional resources used by the test class
+    }
+
+    private void SeedTestData()
+    {
         // Seed the in-memory database with test data
         using var scope = _factory.Services.CreateScope();
         var dbContext = scope.ServiceProvider.GetRequiredService<TestDbContext>();
@@ -50,10 +59,6 @@ public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>, I
         // Add more test data as needed
 
         dbContext.SaveChanges();
-    }
-    public void Dispose()
-    {
-        // Dispose any additional resources used by the test class
     }
 
     private readonly CustomWebApplicationFactory _factory;
