@@ -1,6 +1,6 @@
 ﻿namespace MvcApp.IntegrationTests;
 
-public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStartup> where TStartup : class
+public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -13,4 +13,3 @@ public class CustomWebApplicationFactory<TStartup> : WebApplicationFactory<TStar
         base.ConfigureWebHost(builder);
     }
 }
-
