@@ -1,4 +1,4 @@
-﻿namespace MvcApp.IntegrationTests;
+﻿namespace MvcApp.IntegrationTests.Setup;
 
 public class SqlDataAccess : ISqlDataAccess
 {
@@ -20,7 +20,7 @@ public class SqlDataAccess : ISqlDataAccess
             sql: storedProcedure,
             param: parameter,
             commandType: CommandType.StoredProcedure);
-        
+
         return result;
     }
 

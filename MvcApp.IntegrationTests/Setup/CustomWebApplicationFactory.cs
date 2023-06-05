@@ -1,4 +1,4 @@
-﻿namespace MvcApp.IntegrationTests;
+﻿namespace MvcApp.IntegrationTests.Setup;
 
 public class CustomWebApplicationFactory : WebApplicationFactory<Program>, IDisposable
 {

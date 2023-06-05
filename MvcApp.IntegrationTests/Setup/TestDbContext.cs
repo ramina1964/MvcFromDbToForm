@@ -1,10 +1,10 @@
-﻿namespace MvcApp.IntegrationTesting;
+﻿namespace MvcApp.IntegrationTests.Setup;
 
 public class TestDbContext : DbContext
 {
     public TestDbContext(DbContextOptions<TestDbContext> options)
         : base(options)
-    {}
+    { }
 
     public DbSet<Employee> Employees { get; set; }
 

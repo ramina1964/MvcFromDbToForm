@@ -1,4 +1,7 @@
-﻿namespace MvcApp.IntegrationTests.Controllers;
+﻿
+using MvcApp.IntegrationTests.Setup;
+
+namespace MvcApp.IntegrationTests.Controllers;
 
 public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>, IDisposable
 {
