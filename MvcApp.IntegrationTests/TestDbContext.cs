@@ -10,7 +10,7 @@ public class TestDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Customize your model configuration if needed
+        // Todo: Customize your model configuration if needed:
         // For example:
         // modelBuilder.Entity<Employee>().ToTable("Employees");
         // modelBuilder.Entity<Employee>().HasKey(e => e.Id);
