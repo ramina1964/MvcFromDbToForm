@@ -1,14 +1,24 @@
-﻿
-using MvcApp.IntegrationTests.Setup;
-
-namespace MvcApp.IntegrationTests.Controllers;
+﻿namespace MvcApp.IntegrationTests.Controllers;
 
 public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>, IDisposable
 {
     public HomeControllerTests(CustomWebApplicationFactory factory)
     {
         _factory = factory;
+        _client = _factory.CreateClient();
         SeedTestData();
+    }
+
+    [Fact]
+    public async Task HealthCheck_Returns_Ok()
+    {
+        // Arrange
+
+        // Act
+        var response = await _client.GetAsync("/health");
+
+        // Assert
+        response.EnsureSuccessStatusCode();
     }
 
     public void Dispose()
@@ -65,4 +75,5 @@ public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>, I
     }
 
     private readonly CustomWebApplicationFactory _factory;
+    private readonly HttpClient _client;
 }

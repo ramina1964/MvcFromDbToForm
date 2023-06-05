@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
 builder.Services.AddTransient<IEmployeeService, EmployeeService>();
+builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -16,6 +17,8 @@ if (app.Environment.IsDevelopment() == false)
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+app.UseHealthChecks("/health");
 
 app.UseRouting();
 
