@@ -4,20 +4,26 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        // Configure the test server
-        builder.UseEnvironment("Test");
-
-        // Optionally configure other settings, such as the content root, logging, etc.
         builder.ConfigureServices(services =>
         {
-            services.AddDbContext<TestDbContext>(optionss =>
-            {
-                optionss.UseInMemoryDatabase(TestDatabase);
-            });
-        });
+            // Remove the existing TestDbContext registration, if any
+            var dbContextDescriptor = services.SingleOrDefault(
+                d => d.ServiceType == typeof(TestDbContext));
 
-        // Call the base ConfigureWebHost method to apply the default configuration
-        base.ConfigureWebHost(builder);
+            if (dbContextDescriptor != null)
+            {
+                services.Remove(dbContextDescriptor);
+            }
+
+            // Add the TestDbContext with the appropriate options
+            services.AddDbContext<TestDbContext>(options =>
+            {
+                options.UseInMemoryDatabase(TestDatabase);
+            });
+
+            // Register the TestDbContext for the desired lifetime
+            services.AddScoped<TestDbContext>();
+        });
     }
 
     public string TestDatabase => "InMemortTestDb";
