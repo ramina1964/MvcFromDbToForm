@@ -4,10 +4,10 @@ public class EmployeeService : IEmployeeService
 {
     public EmployeeService(ISqlDataAccess db) => _db = db;
 
-    public async Task<List<Employee>>? ReadAll()
+    public async Task<List<Employee>> ReadAll()
     {
         var result = await _db.LoadData<Employee, dynamic>("spEmployee_ReadAll", new { });
-        return result.ToList();
+        return result.ToList() ?? new List<Employee>();
     }
 
     public async Task<Employee?> ReadById(int id)

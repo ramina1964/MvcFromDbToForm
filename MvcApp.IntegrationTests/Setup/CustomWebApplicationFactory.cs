@@ -27,7 +27,4 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
     }
 
     public string TestDatabase => "InMemortTestDb";
-
-    // IDisposable implementation
-    private bool _disposed = false;
 }

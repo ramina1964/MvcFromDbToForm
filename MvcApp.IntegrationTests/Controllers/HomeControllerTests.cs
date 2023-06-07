@@ -30,7 +30,6 @@ public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>
         // Perform data seeding
         dbContext.Employees.Add(new Employee
         {
-            Id = 1,
             EmployeeId = 123451,
             FirstName = "Ramin",
             LastName = "Anvar",
@@ -39,7 +38,6 @@ public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>
 
         dbContext.Employees.Add(new Employee
         {
-            Id = 2,
             EmployeeId = 123452,
             FirstName = "Afshin",
             LastName = "Anvar",
@@ -48,7 +46,6 @@ public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>
 
         dbContext.Employees.Add(new Employee
         {
-            Id = 3,
             EmployeeId = 123453,
             FirstName = "Amanda S.",
             LastName = "Høyer Anvar",
@@ -57,7 +54,6 @@ public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>
 
         dbContext.Employees.Add(new Employee
         {
-            Id = 4,
             EmployeeId = 123454,
             FirstName = "Kathinka B. H.",
             LastName = "Høyer Anvar",

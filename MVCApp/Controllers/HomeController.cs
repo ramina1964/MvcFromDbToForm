@@ -17,9 +17,9 @@ public class HomeController : Controller
     public async Task<ActionResult> List()
     {
         ViewBag.Message = "Employees List";
-        var result = await _service.ReadAll() ?? new List<Employee>();
-        var employees = new List<EmployeeDisplay>();
-        result.ForEach(e => employees.Add(new EmployeeDisplay
+
+        var result = await _service.ReadAll()!;
+        var employees = result.Select(e => new EmployeeDisplay
         {
             Id = e.Id,
             EmployeeId = e.EmployeeId,
@@ -27,7 +27,7 @@ public class HomeController : Controller
             LastName = e.LastName,
             EmailAddress = e.EmailAddress,
             ConfirmEmail = e.EmailAddress
-        }));
+        }).ToList() ?? new List<EmployeeDisplay>();
 
         return View(employees);
     }
