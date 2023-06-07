@@ -1,6 +1,6 @@
 ﻿namespace MvcApp.IntegrationTests.Setup;
 
-public class CustomWebApplicationFactory : WebApplicationFactory<Program>, IDisposable
+public class CustomWebApplicationFactory : WebApplicationFactory<Program>
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
@@ -18,28 +18,6 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>, IDisp
 
         // Call the base ConfigureWebHost method to apply the default configuration
         base.ConfigureWebHost(builder);
-    }
-
-    protected override void Dispose(bool disposing)
-    {
-        if (!_disposed)
-        {
-            if (disposing)
-            {
-                // Dispose of any resources held by the factory
-                // For example, dispose of the test server
-
-                // Dispose logic here
-            }
-
-            _disposed = true;
-        }
-    }
-
-    public new void Dispose()
-    {
-        Dispose(true);
-        GC.SuppressFinalize(this);
     }
 
     public string TestDatabase => "InMemortTestDb";

@@ -1,6 +1,6 @@
 ﻿namespace MvcApp.IntegrationTests.Controllers;
 
-public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>, IDisposable
+public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>
 {
     public HomeControllerTests(CustomWebApplicationFactory factory)
     {
@@ -19,11 +19,6 @@ public class HomeControllerTests : IClassFixture<CustomWebApplicationFactory>, I
 
         // Assert
         response.EnsureSuccessStatusCode();
-    }
-
-    public void Dispose()
-    {
-        // Dispose any additional resources used by the test class
     }
 
     private void SeedTestData()
