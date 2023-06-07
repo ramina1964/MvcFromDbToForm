@@ -10,10 +10,12 @@ public class CustomWebApplicationFactory : WebApplicationFactory<Program>
         // Optionally configure other settings, such as the content root, logging, etc.
         builder.ConfigureServices(services =>
         {
-            services.AddDbContext<TestDbContext>(optionss =>
+            services.AddDbContext<TestDbContext>(options =>
             {
-                optionss.UseInMemoryDatabase(TestDatabase);
+                options.UseInMemoryDatabase(TestDatabase);
             });
+
+            services.AddScoped<TestDbContext>();
         });
 
         // Call the base ConfigureWebHost method to apply the default configuration
